@@ -33,7 +33,8 @@ class Solution {
     }
 }
 
-/* After reviewing another person's solution online I now realize that using a stack would be a much better way of going about solving this problem.
+/* 
+   After reviewing another person's solution online I now realize that using a stack would be a much better way of going about solving this problem.
    Using a stack would mean I wouldn't have to implement a system of determining if indices have already been removed or not.
    Additionally, I see there are other ways of going about creating more efficient if statements.
    Lastly, I now know that Java has a built in method to convert a String to an array of characters which will serve me well in the future: char[] arr = s.toCharArray();
