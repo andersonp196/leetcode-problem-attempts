@@ -36,3 +36,32 @@ class Solution {
    nearly identical to some solutions I see online which is quite pleasing because that means I came to the same conclusion as other people who also put
    thought into the problem!
 */
+
+// Just implementing these changes made the time go from 14 ms to 5 ms and 42 mb to 39 mb
+class Solution {
+    public int romanToInt(String s) {
+        int x = 0;
+        
+        HashMap<Character, Integer> values = new HashMap<Character, Integer>();
+        values.put('M', 1000);
+        values.put('D', 500);
+        values.put('C', 100);
+        values.put('L', 50);
+        values.put('X', 10);
+        values.put('V', 5);
+        values.put('I', 1);
+        
+        for (int i = 0; i < s.length(); i++) {
+            if (i == s.length() - 1) {
+                x += values.get(s.charAt(i));
+            } else if (values.get(s.charAt(i)) < values.get(s.charAt(i+1))) {
+                x += values.get(s.charAt(i+1)) - values.get(s.charAt(i));
+                i++;
+            } else {
+                x += values.get(s.charAt(i));
+            }
+        }
+        
+        return x;
+    }
+}
