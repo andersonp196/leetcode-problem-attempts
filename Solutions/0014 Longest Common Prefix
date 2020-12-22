@@ -1,0 +1,30 @@
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if (strs.length == 0 || strs == null) {
+            return "";
+        }
+        
+        if (strs.length == 1) {
+            return strs[0];
+        }
+        
+        String longest = "";
+        for (int i = 1; i < strs[0].length()+1; i++) {
+            for (int j = 1; j < strs.length; j++) {
+                if (i > strs[j].length() || !strs[0].substring(0,i).equals(strs[j].substring(0,i))) {
+                    return longest;
+                }
+            }
+            longest = strs[0].substring(0,i);
+        }
+        return longest;
+    }
+}
+
+/*
+  This problem was a headache for quite a while; for a while because I misunderstood what the problem was asking, and then for another while because solving
+  the problem still took some thinking. Other solutions I see online compared Characters instead of substrings, which is likely what made them use less memory
+  than my solution since Characters should take up less space. Other solutions also used the same logic that I did despite using Characters instead of substrings,
+  so I believe that the substrings are partially to blame for my efficiency only being faster than 25% of other accepted solutions as well. I could easily
+  adapt my solution to work with characters and may do so if I come back to this problem!
+*/
